@@ -28,11 +28,11 @@ header = html.H1("Aplikasi Simulasi Kapasitas Embung B ITERA", style={'textAlign
 subtitle = html.H5("Tugas Besar Kapita Selekta Matematika Komputasi (KELOMPOK 3)", style={'textAlign': 'center', "height":"3 px", "background-color":"lightblue"})
 footer = html.Div([html.H1("Institut Teknologi Sumatera"),html.H5("Jl. Terusan Ryacudu, Way Huwi, Kec. Jati Agung, Kabupaten Lampung Selatan, Lampung 35365"), html.P("Zessica Nainggolan | Christina Jheovani| Ayumi Rima| Alviolita Br.Barus | Yanti Marito| Holi Safira| Jesika Ginting"), html.P("created @ 2022 by|072|")], style={'textAlign': 'center', "height":"3 px", "background-color":"orange"})
 inflow_fig = go.FigureWidget()
-inflow_fig.add_scatter(name='Inflow', x=df_inflow['Bulan'], y=df_inflow['Data'])
+inflow_fig.add_scatter(name='Inflow', x=df_inflow['Bulan'], y=df_inflow['Data-masuk'])
 inflow_fig.layout.title = 'Plot Air Yang Masuk'
 
 outflow_fig = go.FigureWidget()
-outflow_fig.add_scatter(name='Outflow', x=df_outflow['Bulan'], y=df_outflow['Data'])
+outflow_fig.add_scatter(name='Outflow', x=df_outflow['Bulan'], y=df_outflow['Data-keluar'])
 outflow_fig.layout.title = 'Plot Air Yang Keluar'
 
 simulation_fig = go.FigureWidget()
@@ -78,7 +78,7 @@ def graph_update(n_clicks):
     # filtering based on the slide and dropdown selection
     if n_clicks >=1:
         #program numerik ---start----
-        inout = df_inflow["Data"].values - df_outflow["Data"].values
+        inout = df_inflow["Data-masuk"].values - df_outflow["Data-keluar"].values
         N = len(inout)
         u = np.zeros(N)
         u0 = 11840
@@ -111,5 +111,5 @@ if __name__ == '__main__':
     app.run_server()
 
 
-#debug=True, and zessica nainggolan
+#debug=True, port=00
 
