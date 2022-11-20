@@ -17,8 +17,8 @@ app = dash.Dash(__name__, server=server, external_stylesheets=[dbc.themes.BOOTST
 #membaca file
 sheet_inflow = "inflow"
 sheet_outflow = "outflow"
-url_inflow = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRJSJntnyMxpTErv4l2SXe39ylvrezWszWgr0RDoViJrLoe4KYEYMF_8GiqApKmspiApXGMKjiVQkRw/pubhtml=csv&sheet={sheet_inflow}"
-url_outflow = url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSvlJhC1d9cOsynaKssFeT-3_oVd-GRTqs3uvTLYEEdg56iQBRudB_091ztpsvnnC_eLyMyp_VmDL1R/pubhtml=csv&sheet={sheet_outflow}"
+url_inflow = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnRmKXqUfD_Cyz7KSMuGZxbmuAUEEIMXQW8eWsd018g_HSicBDLnub46DTZPoaEN3Kqxm94rTrsX5Z/pub?output=csv&sheet={sheet_inflow}"
+url_outflow = url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSv4zy0EE_CF4L0oLD79j65ih1opOTnTNijmjS3RhoUj_uuHERi-hXTBCQ72t0Z-B50iYFmUZ7ODYNj/pub?output=csv&sheet={sheet_outflow}"
 df_inflow = pd.read_csv(url_inflow)
 df_outflow = pd.read_csv(url_outflow)
 
@@ -108,8 +108,8 @@ def graph_update(n_clicks):
 
 #jalankan aplikasi
 if __name__ == '__main__':
-    app.run_server(debug=True, port=00)
+    app.run_server()
 
 
-
+#debug=True, port=00
 
