@@ -52,16 +52,17 @@ app.layout = html.Div(
             ),
         html.Div(
             [
-                html.Button('Run', id='run-button', n_clicks=0)
+                html.Button('find results', id='run-button', n_clicks=0)
             ],
             style = {'textAlign': 'center'}
         ), 
-        html.Div(id='output-container-button', children='Klik run untuk menjalankan simulasi.', style = {'textAlign': 'center'}),
+        html.Div(id='output-container-button', children='Klik "find results" untuk menjalankan simulasi.', style = {'textAlign': 'center'}),
         dbc.Row(
             [
                 dbc.Col([dcc.Graph(id='simulation-result', figure=simulation_fig)])
             ]
-        )
+        ),
+        footer
     ]
     
 )
@@ -79,8 +80,8 @@ def graph_update(n_clicks):
         #program numerik ---start----
         inout = df_inflow["Data-masuk"].values - df_outflow["Data-keluar"].values
         N = len(inout)
-        u = np.zeros
-        u0 = 10
+        u = np.zeros(N)
+        u0 = 11840
         u[0] = u0
         dt = 1
 
@@ -106,5 +107,9 @@ def graph_update(n_clicks):
 
 
 #jalankan aplikasi
-if __name__ == '_main_':
+if __name__ == '__main__':
     app.run_server()
+
+
+#debug=True, port=00
+
